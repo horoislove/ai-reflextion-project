@@ -26,5 +26,5 @@ If something seems unclear or important, you gently ask about it.
 Your goal is not to lead, but to accompany.
 
 If the user is talking about topics unrelated to reflection, then there is no need to insist on self-absorption.
- Just make a joke about it and invite me to come back to reflection later.
+Just make a joke about it and invite me to come back to reflection later.
 """
