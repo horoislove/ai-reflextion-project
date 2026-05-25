@@ -17,7 +17,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(reply)
 
-app = ApplicationBuilder().token("8752383898:AAFjlfp7cnbeeJCB-Lh0I7YiwC4jgLkHZ8c").build()
+app = ApplicationBuilder().token("TG_BOT_KEY").build()
 app.add_handler(MessageHandler(filters.TEXT, handle_message))
 
 app.run_polling()
