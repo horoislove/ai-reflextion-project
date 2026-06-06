@@ -1,0 +1,15 @@
+# Secrets / config
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local data (sensitive conversation history)
+data/conversations.json
+
+# IDE
+.idea/

@@ -1,13 +1,24 @@
 import requests
 
-def generate_response(messages):
-    response = requests.post(
-        "http://localhost:11434/api/chat",
-        json={
-            "model": "gemma4:31b-cloud",
-            "messages": messages,
-            "stream": False
-        }
-    )
+from app.core.config import OLLAMA_URL, OLLAMA_MODEL
 
-    return response.json()["message"]["content"]
+
+class LLMError(Exception):
+    """Не удалось получить ответ от модели."""
+
+
+def generate_response(messages):
+    try:
+        response = requests.post(
+            OLLAMA_URL,
+            json={
+                "model": OLLAMA_MODEL,
+                "messages": messages,
+                "stream": False,
+            },
+            timeout=120,
+        )
+        response.raise_for_status()
+        return response.json()["message"]["content"]
+    except (requests.RequestException, KeyError, ValueError) as e:
+        raise LLMError(str(e)) from e
